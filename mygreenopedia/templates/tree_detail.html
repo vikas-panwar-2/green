@@ -33,7 +33,8 @@
 
             color: #fff;
         }
-        .back1:hover{
+
+        .back1:hover {
             color: #2d2254;
 
             background: #f5cd56;
@@ -44,28 +45,29 @@
 <body>
 
 
-    <div class="card w-75 mx-auto mb-4 mt-3 back">
+    <div class="w-50 mx-auto mb-4 mt-3 back">
+        
         <div class="card-body">
             <!-- <h1 class="card-text"><img src="{% static 'images/logo128.png' %}" alt="My image"><span class="ml-3">Confession</span><span -->
-                    <!-- class="card-title"></span>#</span> -->
-                <span class="card-title" id='myID'>{{tree.mostcommonname}}</span></h1>
+            <!-- class="card-title"></span>#</span> -->
+            <span class="card-title" id='myID'>{{tree.mostcommonname}}</span></h1>
             <p class="card-text text-right" style="font-size:small;">{{tree.id}}</p>
             <!-- <center><img src={{url}} class="img-responsive" style="width: 500px; float: left; margin-right: 10px;" /></center> -->
             <h5 class="card-text" style="color: aliceblue;">{{tree.description}}</h5>
             <h5 class="card-text" style="color: aliceblue;">{{tree.link2|urlize}}</h5>
             <!-- <h5 class="card-text" style="color: aliceblue;">{{tree.description}}</h5> -->
             {% autoescape off %}
-                {{tree.link1}}
+            {{tree.link1}}
             {% endautoescape %}
 
             {% autoescape off %}
-                {{tree.map}}
+            {{tree.map}}
             {% endautoescape %}
-            
-            </div>
+
         </div>
     </div>
-    
+    </div>
+
 
 
     </script>

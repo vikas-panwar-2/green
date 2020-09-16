@@ -35,3 +35,5 @@ class Data(models.Model):
 
     class Meta:
         db_table = 'Data'
+    def __str__(self):
+        return f'{self.mostcommonname}'

@@ -3,16 +3,45 @@ from .models import Data
 # import csv
 # import os
 # Create your views here.
+def remove(string): 
+    return string.replace(" ", "") 
 
 def tree_list(request):
     trees = Data.objects.all()
-    return render(request, 'tree_list.html' , {"trees":trees})
+    l = []
+    k = []
+    l1 = []
+    l2 = []
+    i=0
+    zipped_data = []
+    for tree in trees :
+        
+        image = str(tree.mostcommonname)+'.jpg'
+        l1.append(tree)
+        l2.append("/images/"+str(remove(image)))
+        i=i+1
+        if i%3 == 0 and i!=0:
+            zipped_data.append(zip(l1,l2))
+            l.append(l1)
+            k.append(l2)
+            l1 = []
+            l2 = []
+    # zipped_data = zip(l1,l2)
+    # print(zipped_data)
+    print(l)
+    print(k)
+    for tree in zipped_data:
+        for a,b in tree:
+            print(a , b)
+        break
+    return render(request, 'tree_list.html' , {"trees":zipped_data}) 
 
 
 def tree_detail(request,t_id):
     tree = Data.objects.filter(id = t_id).first()
-    print(type(tree.link1))
+    
     return render (request,"tree_detail.html",{"tree":tree})
+
 
 
 
