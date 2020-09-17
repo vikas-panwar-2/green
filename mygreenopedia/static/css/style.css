@@ -71,6 +71,10 @@ img {
     transform: scale3d(1, 1, 1);
 }
 
+.card1{
+    margin:10px;
+}
+
 .slogan {
     text-align: center;
     font: 36px/36px 'Yellowtail', cursive;
