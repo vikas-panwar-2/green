@@ -45,6 +45,37 @@ def tree_detail(request,t_id):
     return render (request,"tree_detail.html",{"tree":tree , "image":image})
 
 
+def tree_filter(request,initial):
+    trees = Data.objects.filter(initial = initial)
+    l = []
+    k = []
+    l1 = []
+    l2 = []
+    i=0
+    zipped_data = []
+    for tree in trees :
+        
+        image = str(tree.mostcommonname)+'.jpg'
+        l1.append(tree)
+        l2.append("/images/"+str(remove(image)))
+        i=i+1
+        if i%3 == 0 and i!=0:
+            zipped_data.append(zip(l1,l2))
+            l.append(l1)
+            k.append(l2)
+            l1 = []
+            l2 = []
+    # zipped_data = zip(l1,l2)
+    # print(zipped_data)
+    # print(l)
+    # print(k)
+    for tree in zipped_data:
+        for a,b in tree:
+            print(a , b)
+        break
+    return render(request, 'tree_filter.html' , {"trees":zipped_data}) 
+
+
 # with open('employee_birthday.txt') as csv_file:
 #     csv_reader = csv.reader(csv_file, delimiter=',')
 #     line_count = 0
