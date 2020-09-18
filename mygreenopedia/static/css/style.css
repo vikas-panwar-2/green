@@ -29,18 +29,7 @@
   }
   .card:hover::before, .card:hover::after, .card:focus::before, .card:focus::after {
     transform: scale3d(1, 1, 1);
-}
-
-.card1{
-    margin:10px;
-}
-
-.slogan {
-    text-align: center;
-    font: 36px/36px 'Yellowtail', cursive;
-    color: #e7e6d4;
-    padding-bottom: 113px;
-}
+  }
   /* .card-img-top {
       height : 500px;
       width : 500px

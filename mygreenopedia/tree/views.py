@@ -28,8 +28,8 @@ def tree_list(request):
             l2 = []
     # zipped_data = zip(l1,l2)
     # print(zipped_data)
-    print(l)
-    print(k)
+    # print(l)
+    # print(k)
     for tree in zipped_data:
         for a,b in tree:
             print(a , b)
@@ -39,10 +39,10 @@ def tree_list(request):
 
 def tree_detail(request,t_id):
     tree = Data.objects.filter(id = t_id).first()
-    
-    return render (request,"tree_detail.html",{"tree":tree})
-
-
+    image = str(tree.mostcommonname)+'.jpg'
+    image = "/images/"+str(remove(image))
+    # print(image)
+    return render (request,"tree_detail.html",{"tree":tree , "image":image})
 
 
 # with open('employee_birthday.txt') as csv_file:
